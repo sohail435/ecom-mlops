@@ -26,4 +26,4 @@ jobs:
 
       - name: Run automated validation tests
         run: |
-          pythonpath=. pytest
+          PYTHONPATH=. pytest
