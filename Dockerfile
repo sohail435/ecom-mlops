@@ -22,4 +22,5 @@ COPY . .
 EXPOSE 8000
 
 # Command to run the API Gateway using Uvicorn
-CMD ["uvicorn", "gateway:app", "--host", "0.0.0.0", "--port", "8000"]
+# Command to run both the inventory service and the gateway concurrently
+CMD ["sh", "-c", "uvicorn app.inventory_service:app --host 0.0.0.0 --port 8001 & uvicorn gateway:app --host 0.0.0.0 --port 8000"]
